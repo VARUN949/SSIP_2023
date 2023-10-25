@@ -19,12 +19,15 @@ function App() {
 
       <div className="right flex flex-col justify-center items-center w-[50%] h-full p-16 pt-0">
         <div className="upper_section flex flex-col relative left-20">
-        <div className="access text-2xl text-white mt-0">Have An Authorized Access? </div>
-        <div className="relative left-52 text-gray-200 font-semibold hover:cursor-pointer hover:underline">Click Here !</div>
+          <div className="access text-2xl text-white mt-0">
+            Have An Authorized Access?{" "}
+          </div>
+          <div className="relative left-52 text-gray-200 font-semibold hover:cursor-pointer hover:underline">
+            Click Here !
+          </div>
         </div>
-        
 
-        {/* right side buttons division hospital,office college etc */}
+        {/* right side buttons division hospital,office college etc...*/}
         <div
           className="img mt-28 flex flex-col"
           style={{
