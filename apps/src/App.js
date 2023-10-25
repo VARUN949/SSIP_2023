@@ -28,6 +28,7 @@ function App() {
         </div>
 
         {/* right side buttons division hospital,office college etc...*/}
+        
         <div
           className="img mt-28 flex flex-col"
           style={{
