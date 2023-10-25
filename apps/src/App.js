@@ -5,6 +5,7 @@ import map_img from "./assets/map-img.png";
 
 function App() {
   return (
+
     <main className="flex h-screen bg-gradient-to-tr from-[#38383e] to-[#5f5d5d] overflow-hidden">
       <div className="left h-full flex flex-col justify-center items-center  w-[50%] space-y-10 p-11">
         <div className="text-5xl text-center text-white">
@@ -22,7 +23,13 @@ function App() {
         <div className="access text-2xl text-white mt-0">Have An Authorized Access? </div>
         <div className="relative left-52 text-gray-200 font-semibold hover:cursor-pointer hover:underline">Click Here !</div>
         </div>
-        
+
+    <div className="App">
+      <header className="App-header">
+        <p>
+          SSIP 2023 
+          hello world this is first commit
+        </p>
 
         {/* right side buttons division hospital,office college etc.... */}
         <div
