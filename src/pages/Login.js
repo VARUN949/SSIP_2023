@@ -68,7 +68,7 @@ function Login() {
       </div>
 
       {/* --------------------right side show case code only------------ */}
-      <div className="right flex flex-col justify-center items-center w-[50%] h-full p-16 pt-0">
+      <div className="right flex flex-col justify-center items-center w-[50%] h-full p-16 pt-0 mt-5">
         <div className="upper_section flex flex-col relative left-20">
           <div className="access text-2xl text-white mt-0">
             Don't Have An Authorized Access?
