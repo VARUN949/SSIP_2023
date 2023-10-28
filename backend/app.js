@@ -9,7 +9,11 @@ const userRoutes = require("./Routes/userRoute");
 const errorMiddleware = require("./Middleware/errors");
 
 // Load environment variables from config file
-dotenv.config({ path: "F:/dhruv/webd/SSIP/SSIP_20232/SSIP_2023/backend/config/config.env" });
+if (process.env.DOTENV_CONFIG_PATH) {
+  dotenv.config({ path: process.env.DOTENV_CONFIG_PATH });
+} else {
+  dotenv.config(); // Load from default path if DOTENV_CONFIG_PATH is not set
+}
 
 // Initialize Express app
 const app = express();
@@ -23,10 +27,13 @@ app.use(cors());
 
 // Connect to MongoDB database
 mongoose
-  .connect("mongodb+srv://bavadiyadhruv:cf8YtIjKGoBNXPaA@cluster1.zvsodkn.mongodb.net/", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://bavadiyadhruv:cf8YtIjKGoBNXPaA@cluster1.zvsodkn.mongodb.net/",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Mongoose is connected");
   })

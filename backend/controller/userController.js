@@ -83,7 +83,7 @@ exports.forgotPassword = catcherror(async (req, res, next) => {
     try {
         await sendEmail({
             email: user.email,
-            subject: "Flappy Ecommerce Password reset",
+            subject: "Message from CivikCrafter :",
             message
         });
         res.status(200).json({
