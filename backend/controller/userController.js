@@ -14,10 +14,6 @@ exports.RegisterUser = catcherror(async (req, res, next) => {
     // Create a new user with default avatar details and send token upon successful registration
     const user = await User.create({
         name, email, password,
-        avatar: {
-            public_id: "this is sample id",
-            uri: "profilepic"
-        }
     });
     sendToken(user, 201, res);
 });
