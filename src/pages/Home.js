@@ -11,7 +11,7 @@ function Home() {
         </div>
         <div className="btn text-center">
           <button className="text-blue-400 font-semibold bg-white p-4 px-8 hover:underline hover:text-blue-600 text-xl rounded-lg">
-          <Link to="/login"> Get Started &#8594;</Link> 
+          <Link to="/login">Get Started &#8594;</Link> 
           </button>
         </div>
       </div>
