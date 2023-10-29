@@ -27,6 +27,9 @@ const PlaceSchema = mongoose.Schema({
             }
         }]
     },
+    images:{
+        type:String,
+    },
     contactNo:{
         type:Number,
     },
