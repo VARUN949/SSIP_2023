@@ -19,7 +19,7 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(userCredentials);
+    // console.log(userCredentials);
 
     // You can access userCredentials.unique_id and userCredentials.password here for further processing.
   };

@@ -25,7 +25,7 @@ exports.isUserAuthorized = (...roles) => {
         next();
       }
     } else {
-      console.log("user not found");
+      // console.log("user not found");
     }
   };
 };

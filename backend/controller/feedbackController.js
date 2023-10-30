@@ -14,7 +14,7 @@ exports.addReview = catcherror(async(req,res,next)=>{
     }
 
     const feedback = await feedbackSchema.create({user,comment,place:placeId})
-    console.log(feedback)
+    // console.log(feedback)
     place.feedback[1].push(feedback);
     await place.save();
     

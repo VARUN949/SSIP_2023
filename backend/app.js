@@ -11,7 +11,7 @@ const errorMiddleware = require("./Middleware/errors");
 
 // Initialize Express app
 const app = express();
-console.log(process.env.PORT)
+// console.log(process.env.PORT)
 // Middleware - Body parser for JSON data and Cookie parser
 app.use(express.json());
 app.use(cookieParser());
@@ -29,7 +29,7 @@ mongoose
     }
   )
   .then(() => {
-    console.log("Mongoose is connected");
+    // console.log("Mongoose is connected");
   })
   .catch((err) => {
     console.error("Mongoose connection error:", err);
@@ -46,5 +46,5 @@ app.use(errorMiddleware);
 // Start the server
 // const port = process.env.PORT;
 app.listen(process.env.PORT, () => {
-  console.log(`Server is running on port ${process.env.PORT}`);
+  // console.log(`Server is running on port ${process.env.PORT}`);
 });
