@@ -1,5 +1,18 @@
 const mongoose = require("mongoose")
 
+
+const FeedbackSchema = mongoose.Schema({
+    user:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User", 
+        required: true,
+    },
+    comment: {
+        type: String,
+        required: true,
+    },
+});
+
 const PlaceSchema = mongoose.Schema({
     name:{
         type:String,
@@ -44,7 +57,10 @@ const PlaceSchema = mongoose.Schema({
         },
         
     },
-
+    numofFeedback:{
+        type:Number
+    },
+    feedback:[FeedbackSchema],
 })
 
 
