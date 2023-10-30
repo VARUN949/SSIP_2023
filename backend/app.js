@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const placeRoutes = require("./Routes/routePlace");
 const userRoutes = require("./Routes/userRoute");
+const feedbackRoute = require('./Routes/feedbackRoute')
 const errorMiddleware = require("./Middleware/errors");
 
 // Initialize Express app
@@ -37,6 +38,7 @@ mongoose
 // Routes
 app.use("/app/vr1", placeRoutes);
 app.use("/app/vr1", userRoutes);
+app.use("/app/vr1", feedbackRoute);
 
 // Error handling middleware
 app.use(errorMiddleware);
