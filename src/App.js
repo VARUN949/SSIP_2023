@@ -5,7 +5,6 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 
 
-
 // https://ssip2023-backends.onrender.com/ for apis
 
 function App() {

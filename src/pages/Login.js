@@ -2,6 +2,7 @@ import React from "react";
 import map_img from "../assets/map-img.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
 function Login() {
   const [userCredentials, setUserCredentials] = useState({
     unique_id: "",
@@ -19,8 +20,8 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(userCredentials);
-
+    //console.log(userCredentials);
+   
     // You can access userCredentials.unique_id and userCredentials.password here for further processing.
   };
 
