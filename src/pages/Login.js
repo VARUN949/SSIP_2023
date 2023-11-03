@@ -2,7 +2,7 @@ import React from "react";
 import map_img from "../assets/map-img.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Form from "./Form/Form.js";
+// import Form from "./Form/Form.js";
 function Login() {
   const [userCredentials, setUserCredentials] = useState({
     unique_id: "",
