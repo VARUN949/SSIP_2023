@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Display from './components/Display'
 
-const App = () => {
+const Form = () => {
   return (
     <>
     <Navbar/>
@@ -11,4 +11,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Form

@@ -2,11 +2,14 @@
     position: absolute;
     top : 100px;
     left: 100px;
+    height:35%;
+    width: 35%;
 }
 .bgimg{
     filter:brightness(50%);
     width:100%;
-    height:100%
+    height:488px;
+    overflow: hidden;
 }
 .form{
     colour:white;
