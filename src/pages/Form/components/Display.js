@@ -6,10 +6,10 @@ const display = () => {
   return (
     <>
       <div className="map">
-        <img src={mapimage} className="bgimg" />
+        <img src={mapimage} className="bgimg" alt="" />
 
         <div className="mapimage">
-          <img src={map1} />
+          <img src={map1} alt=""/>
         </div>
         <div className="container">
           <h3 >Basic Information</h3>
