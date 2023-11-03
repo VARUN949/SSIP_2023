@@ -44,20 +44,20 @@ class ApiFeature{
     }
 
     search(){
-        console.log("search")
+        // console.log("search")
         const keyword = this.queryStr.keyword ? {
             name:{
                 $regex : this.queryStr.keyword,
                 $options : "i",
             },
         } : {}
-        console.log(keyword)
+        // console.log(keyword)
         this.query= this.query.find({...keyword});
         return this;
     }
 
     filter(){
-        console.log("filter")
+        // console.log("filter")
 
         const filterquery = {...this.queryStr};   // we cant pass referance of this.queryStr so for pass value we use {...}.
 

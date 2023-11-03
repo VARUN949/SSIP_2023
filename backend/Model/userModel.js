@@ -66,7 +66,7 @@ userModel.methods.ResetPassword = function () {
     .update(resettoken)
     .digest("hex");
   this.resetPasswordExpire = new Date(Date.now() + 15 * 60 * 1000);
-  console.log(this.resetPasswordExpire);
+  // console.log(this.resetPasswordExpire);
   return resettoken;
 };
 

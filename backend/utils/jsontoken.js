@@ -16,7 +16,7 @@ const sendToken = (user, statusCode, res) => {
     });
 
     // Log the Set-Cookie header
-    console.log(res.get('Set-Cookie'));
+    // console.log(res.get('Set-Cookie'));
 };
 
 module.exports = sendToken;

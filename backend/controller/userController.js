@@ -22,7 +22,7 @@ exports.RegisterUser = catcherror(async (req, res, next) => {
 
 // Controller function to handle user login
 exports.LoginUser = catcherror(async (req, res, next) => {
-  console.log("runn");
+  // console.log("runn");
   // Extract email and password from the request body
   const { email, password } = req.body;
 

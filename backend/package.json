@@ -22,7 +22,6 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "moongose": "^1.0.0",
-    "node-cron": "^3.0.2",
     "nodemailer": "^6.9.7",
     "validator": "^13.11.0"
   }

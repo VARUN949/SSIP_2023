@@ -122,26 +122,73 @@ exports.getlocation = catcherror(async (req, res, next) => {
   }
 });
 
-// try to find places of our database through textaddress.
+// get Place by name
+exports.getPlaceByName = catcherror(async (req, res, next) => {
+  const keyword = req.query.keyword;
 
-exports.getgovLocation = catcherror(async (req, res, next) => {
-  const textAddress = req.body.textAddress;
-
-  if (textAddress) {
-    // Filter places based on the textAddress provided in the query parameters
+  if (keyword) {
     const places = await PlaceSchema.find({
-      "placeAddress.textAddress": { $regex: textAddress, $options: "i" },
+      name: { $regex: keyword, $options: "i" } // Case-insensitive search
     });
-    const data = places.placeAddress;
-    res.status(200).json({
-      success: true,
-      data,
-    });
+    if (places.length > 0) {
+      res.status(200).json({
+        success: true,
+        places: places
+      });
+    } else {
+      return next(new ErrorHandler("No places found for the given keyword.", 404));
+    }
   } else {
-    // Handle the case when no textAddress is provided in the query parameters
-    res.status(400).json({
-      success: false,
-      message: "textAddress parameter is missing in the query.",
-    });
+    return next(new ErrorHandler("Keyword parameter is missing in the query.", 400));
   }
 });
+
+function calculateDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371; // Radius of the Earth in kilometers
+  const dLat = (lat2 - lat1) * (Math.PI / 180);
+  const dLon = (lon2 - lon1) * (Math.PI / 180);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distance = R * c;
+  return distance; // Distance in kilometers
+}
+
+
+exports.loactionByCoordinates = async (req, res) => {
+  const { lat, lon, maxDistance } = req.body; // Latitude, longitude, and maximum distance in kilometers
+
+  const latitude = parseFloat(lat);
+  const longitude = parseFloat(lon);
+  const distanceInRadians = maxDistance / 6371;
+  try {
+    // console.log(lat,lon,maxDistance)
+    // Find places within the specified distance
+    const places = await PlaceSchema.find({
+      'placeAddress.coordinates': {
+        $geoWithin: {
+          $centerSphere: [[latitude, longitude], distanceInRadians] // Convert distance to radians
+        }
+      }
+    });    
+    // console.log(places)
+
+    // Calculate distances for each place and sort the places array based on distances
+    places.forEach(place => {
+      const distance = calculateDistance(23.026952715584258, 72.58593030906115, place.placeAddress.coordinates.latitude, place.placeAddress.coordinates.longitude);
+      place.distance = distance; // Add the distance property to the place object
+    });
+
+    // Sort places by distance (ascending order)
+    places.sort((a, b) => a.distance - b.distance);
+
+    res.json({ success: true, places });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Internal Server Error' });
+  }
+};
+
+
