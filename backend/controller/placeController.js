@@ -101,6 +101,25 @@ exports.getPlace = catcherror(async (req, res, next) => {
 // To get location by text address :
 // not working properly due to free api is not efficient
 
+exports.getBycategory = catcherror(async(req,res,next)=>{
+  const category = req.query.category
+  if (category) {
+    const places = await PlaceSchema.find({
+      placeCategory: { $regex: category, $options: "i" } // Case-insensitive search
+    });
+    if (places.length > 0) {
+      res.status(200).json({
+        success: true,
+        places: places
+      });
+    } else {
+      return next(new ErrorHandler("No places found for the given keyword.", 404));
+    }
+  } else {
+    return next(new ErrorHandler("Keyword parameter is missing in the query.", 400));
+  }
+})
+
 exports.getlocation = catcherror(async (req, res, next) => {
   const location = req.body;
   try {
