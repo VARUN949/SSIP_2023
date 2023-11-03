@@ -23,6 +23,7 @@ app.use(cors());
 mongoose
   .connect(
     "mongodb+srv://bavadiyadhruv:cf8YtIjKGoBNXPaA@cluster1.zvsodkn.mongodb.net/",
+    // "mongodb://127.0.0.1:27017/SSIP2023",
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
