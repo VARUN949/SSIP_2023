@@ -2,6 +2,7 @@ import React from "react";
 import map_img from "../assets/map-img.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+// import Form from "./Form/Form.js";
 function Login() {
   const [userCredentials, setUserCredentials] = useState({
     unique_id: "",
@@ -19,8 +20,8 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(userCredentials);
-
+    //console.log(userCredentials);
+   
     // You can access userCredentials.unique_id and userCredentials.password here for further processing.
   };
 
@@ -52,10 +53,11 @@ function Login() {
           />
 
           <button
+          
             className="bg-white text-blue-800 p-3 w-96 text-xl mt-16 font-semibold rounded-md hover:text-blue-950"
             type="submit"
           >
-            Get System Access
+            <Link to= "/Form" >Get System Access</Link> 
           </button>
         </form>
         <div className="mt-4 text-white relative right-[21%]">

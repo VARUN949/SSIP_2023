@@ -1,0 +1,72 @@
+.mapimage{   
+    position: absolute;
+    top : 100px;
+    left: 100px;
+    height:35%;
+    width: 35%;
+}
+.bgimg{
+    filter:brightness(50%);
+    width:100%;
+    height:488px;
+    overflow: hidden;
+}
+.form{
+    colour:white;
+    position: absolute;
+    top:100px;
+    left :800px;
+}
+.container{
+    padding-top: 10px;
+    position: absolute;
+    top:100px;
+    left :700px;
+    width:35%;
+    border-radius: 5%;
+    
+   
+    background-color:white;
+}
+h3{
+
+    text-align: center;
+}
+
+
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        
+        padding :12px;
+        }
+        .item {
+            position: relative;
+            margin: 8px 0;
+            font-size: 1.2rem;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-style: bold;
+            }
+            .item input{
+                margin :0px 10px;
+                background-color: rgb(230, 228, 228);
+                border-radius: 8px;
+                border-color: white;
+            }
+            .button {
+                background-color: rgb(23, 42, 68);
+                border: none;
+                color: white;
+                padding: 8px 8px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 10px;
+                margin: 4px 2px;
+                margin-left: 100px;
+                cursor: pointer;
+                border-radius: 5%;
+                width:50%;
+                align-items: center;
+              }
