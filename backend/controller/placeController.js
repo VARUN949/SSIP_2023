@@ -103,10 +103,13 @@ exports.getPlace = catcherror(async (req, res, next) => {
 
 exports.getBycategory = catcherror(async(req,res,next)=>{
   const category = req.query.category
+  // console.log(category)
   if (category) {
+    // console.log(category)
     const places = await PlaceSchema.find({
       placeCategory: { $regex: category, $options: "i" } // Case-insensitive search
     });
+    // console.log(places)
     if (places.length > 0) {
       res.status(200).json({
         success: true,

@@ -3,24 +3,24 @@ const mongoose = require('mongoose');
 const PlaceSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        // required: true
     },
     placeCategory: {
         type: String,
-        required: true
+        // required: true
     },
     description: {
         type: String,
-        required: true
+        // required: true
     },
     placeAddress: {
         textAddress: {
             type: String,
-            required: true
+            // required: true
         },
         pinCode: {
             type: Number,
-            required: true
+            // required: true
         },
         coordinates: {
             latitude: {
@@ -52,18 +52,21 @@ const PlaceSchema = mongoose.Schema({
     },
     numberOfFeedback: {
         type: Number,
-        required: true,
+        // required: true,
         default:0
     },
     feedback: [{
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User', // Assuming you have a User model, replace it with the actual model name if different
-            required: true
+            // required: true
         },
         comment: {
             type: String,
-            required: true
+            // required: true
+        },
+        image:{
+            type: String,
         },
         
     }]

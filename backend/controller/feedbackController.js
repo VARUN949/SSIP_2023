@@ -4,7 +4,7 @@ const User = require('../Model/userModel'); // Import the User model
 const addFeedback = async (req, res) => {
     try {
         const userId = req.user.id; // Get user ID from the authenticated user
-        const { placeId, comment } = req.body; // Destructure placeId and comment directly
+        const { placeId, comment,image } = req.body; // Destructure placeId and comment directly
 
         // Check if the user exists
         const user = await User.findById(userId);
@@ -21,7 +21,8 @@ const addFeedback = async (req, res) => {
         // Create feedback object
         const feedbackEntry = {
             user: userId,
-            comment
+            comment,
+            image
         };
 
         // Add feedback to the place
@@ -39,6 +40,5 @@ const addFeedback = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
-
 
 module.exports = { addFeedback };
